@@ -35,7 +35,14 @@
     "end_date": "08/20/2027",
     "duration_months": 3,
     "full_time": true,
-    "thesis_or_report_required": false
+    "thesis_or_report_required": false,
+    "notice_period": "More than 12 weeks",
+    "current_student": true,
+    "anticipated_graduation_date": "12/17/2027",
+    "former_employee": false,
+    "former_intern_or_contractor": false,
+    "consider_other_positions": true,
+    "receive_sms_notifications": true
   },
   "eeo": {
     "gender": "Female",

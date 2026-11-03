@@ -98,7 +98,7 @@ class AutofillerEngine:
 
                 if val is not None and str(val).strip():
                     # Check if this input is a datepicker (like Tesla / TDS datepicker)
-                    if field_key == "start_date" or "date" in el.get_attribute("class") or "":
+                    if field_key in ["start_date", "anticipated_graduation_date"] or "date" in (el.get_attribute("class") or ""):
                         if self._handle_tesla_datepicker(page, el, str(val)):
                             results["filled_fields"].append({
                                 "field": field_key,
@@ -122,33 +122,38 @@ class AutofillerEngine:
     def _handle_tesla_datepicker(self, page: Page, el: ElementHandle, date_str: str) -> bool:
         """
         Handles interactive calendar datepickers (such as Tesla's TDS design system).
-        e.g., date_str: '05/17/2027'
+        e.g., date_str: '12/17/2027' or '05/17/2027'
         """
         try:
             from datetime import datetime
             dt = datetime.strptime(date_str, "%m/%d/%Y")
-            target_month_str = dt.strftime("%B %Y") # e.g. "May 2027"
+            target_month_str = dt.strftime("%B %Y") # e.g. "December 2027"
             target_day_str = str(dt.day)             # e.g. "17"
 
-            # Open the calendar
-            cal_btn = page.locator("button:has(svg.tds-icon-calendar)").first
-            if cal_btn.is_visible():
+            # Open calendar associated with this input
+            parent_handle = el.evaluate_handle("el => el.parentElement")
+            cal_btn = parent_handle.as_element().query_selector("button:has(svg.tds-icon-calendar), button.tds-icon-btn")
+            if cal_btn and cal_btn.is_visible():
                 cal_btn.click()
                 page.wait_for_timeout(300)
 
-            # Advance to target month
-            month_label = page.locator(".tds-date-picker-month label")
-            next_btn = page.locator(".tds-date-picker button:has(svg.tds-icon-chevron-small-90)")
+            # Look up open date picker
+            picker = page.locator(".tds-date-picker").last
+            if not picker.is_visible():
+                return False
 
-            for _ in range(24):
+            month_label = picker.locator(".tds-date-picker-month label")
+            next_btn = picker.locator("button:has(svg.tds-icon-chevron-small-90)")
+
+            for _ in range(36):
                 if month_label.is_visible() and target_month_str.lower() in month_label.inner_text().lower():
                     break
                 if next_btn.is_visible():
                     next_btn.click()
-                    page.wait_for_timeout(100)
+                    page.wait_for_timeout(80)
 
-            # Click day in active month grid
-            day_btn = page.locator(f".tds-date-picker-days-grid button:not(.tds-day--not-this-month):has-text(\"{target_day_str}\")").first
+            # Click the matching day in current month
+            day_btn = picker.locator(f".tds-date-picker-days-grid button:not(.tds-day--not-this-month):has-text(\"{target_day_str}\")").first
             if day_btn.is_visible():
                 day_btn.click()
                 page.wait_for_timeout(200)

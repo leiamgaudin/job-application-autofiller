@@ -158,6 +158,60 @@
       "field_path": "availability.thesis_or_report_required",
       "type": "boolean"
     },
+    "notice_period": {
+      "patterns": [
+        "notice period", "availability or notice"
+      ],
+      "exclude_patterns": [],
+      "field_path": "availability.notice_period"
+    },
+    "current_student": {
+      "patterns": [
+        "current university student", "enrolled in an academic program"
+      ],
+      "exclude_patterns": ["graduation date"],
+      "field_path": "availability.current_student",
+      "type": "boolean"
+    },
+    "anticipated_graduation_date": {
+      "patterns": [
+        "anticipated graduation", "expected graduation", "graduation date"
+      ],
+      "exclude_patterns": [],
+      "field_path": "availability.anticipated_graduation_date"
+    },
+    "former_employee": {
+      "patterns": [
+        "previously been employed", "former employee", "previously worked"
+      ],
+      "exclude_patterns": ["intern", "contractor"],
+      "field_path": "availability.former_employee",
+      "type": "boolean"
+    },
+    "former_intern": {
+      "patterns": [
+        "former current intern", "current intern or contractor", "intern or contractor", "previous intern"
+      ],
+      "exclude_patterns": [],
+      "field_path": "availability.former_intern_or_contractor",
+      "type": "boolean"
+    },
+    "consider_other_positions": {
+      "patterns": [
+        "consider me for other", "other job opportunities"
+      ],
+      "exclude_patterns": [],
+      "field_path": "availability.consider_other_positions",
+      "type": "boolean"
+    },
+    "receive_sms_notifications": {
+      "patterns": [
+        "text messages", "receiving text messages", "sms notifications"
+      ],
+      "exclude_patterns": [],
+      "field_path": "availability.receive_sms_notifications",
+      "type": "boolean"
+    },
     "gender": {
       "patterns": [
         "gender", "sex"

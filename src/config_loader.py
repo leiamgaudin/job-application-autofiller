@@ -45,6 +45,13 @@ class AvailabilityInfo(BaseModel):
     duration_months: int = 3
     full_time: bool = True
     thesis_or_report_required: bool = False
+    notice_period: str = "12_weeks_or_more"
+    current_student: bool = True
+    anticipated_graduation_date: str = "12/17/2027"
+    former_employee: bool = False
+    former_intern_or_contractor: bool = False
+    consider_other_positions: bool = True
+    receive_sms_notifications: bool = True
 
 class EEOInfo(BaseModel):
     gender: str = ""
