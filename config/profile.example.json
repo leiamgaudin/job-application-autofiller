@@ -1,0 +1,46 @@
+{
+  "personal": {
+    "first_name": "Jane",
+    "last_name": "Doe",
+    "full_name": "Jane Doe",
+    "email": "jane.doe@example.com",
+    "phone": "+1 (555) 123-4567",
+    "phone_type": "Mobile",
+    "address_line1": "123 Main Street",
+    "address_line2": "Apt 4B",
+    "city": "San Francisco",
+    "state": "California",
+    "state_abbr": "CA",
+    "postal_code": "94105",
+    "country": "United States"
+  },
+  "profiles": {
+    "linkedin": "https://www.linkedin.com/in/janedoe",
+    "github": "https://github.com/janedoe",
+    "portfolio": "https://janedoe.dev",
+    "twitter": "https://twitter.com/janedoe"
+  },
+  "documents": {
+    "resume_path": "/path/to/your/resume.pdf",
+    "cover_letter_path": ""
+  },
+  "work_authorization": {
+    "authorized_to_work_in_country": true,
+    "require_sponsorship": false,
+    "future_sponsorship": false,
+    "minimum_age_18": true
+  },
+  "availability": {
+    "start_date": "05/17/2027",
+    "end_date": "08/20/2027",
+    "duration_months": 3,
+    "full_time": true,
+    "thesis_or_report_required": false
+  },
+  "eeo": {
+    "gender": "Female",
+    "race_ethnicity": "White",
+    "veteran_status": "I am not a protected veteran",
+    "disability_status": "No, I do not have a disability"
+  }
+}

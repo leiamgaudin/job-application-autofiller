@@ -1,0 +1,222 @@
+{
+  "rules": {
+    "first_name": {
+      "patterns": [
+        "first name", "given name", "forename", "fname", "firstname"
+      ],
+      "exclude_patterns": ["last", "surname", "middle"],
+      "field_path": "personal.first_name"
+    },
+    "last_name": {
+      "patterns": [
+        "last name", "surname", "family name", "lname", "lastname"
+      ],
+      "exclude_patterns": ["first"],
+      "field_path": "personal.last_name"
+    },
+    "full_name": {
+      "patterns": [
+        "full name", "your name", "candidate name", "legal name"
+      ],
+      "exclude_patterns": ["first", "last", "company", "school", "referee"],
+      "field_path": "personal.full_name"
+    },
+    "email": {
+      "patterns": [
+        "email", "e-mail", "email address"
+      ],
+      "exclude_patterns": ["referral", "referrer"],
+      "field_path": "personal.email"
+    },
+    "phone_type": {
+      "patterns": [
+        "phone type", "device type", "telephone type", "type of phone"
+      ],
+      "exclude_patterns": [],
+      "field_path": "personal.phone_type"
+    },
+    "phone": {
+      "patterns": [
+        "phone", "telephone", "mobile", "cell", "contact number"
+      ],
+      "exclude_patterns": ["work phone", "extension", "phone type", "type"],
+      "field_path": "personal.phone"
+    },
+    "address_line1": {
+      "patterns": [
+        "street address", "address line 1", "address 1", "street", "mailing address"
+      ],
+      "exclude_patterns": ["line 2", "apt", "suite"],
+      "field_path": "personal.address_line1"
+    },
+    "address_line2": {
+      "patterns": [
+        "address line 2", "address 2", "apt", "suite", "unit"
+      ],
+      "exclude_patterns": [],
+      "field_path": "personal.address_line2"
+    },
+    "city": {
+      "patterns": [
+        "city", "town", "municipality"
+      ],
+      "exclude_patterns": [],
+      "field_path": "personal.city"
+    },
+    "state": {
+      "patterns": [
+        "state", "province", "region"
+      ],
+      "exclude_patterns": ["united states", "statement"],
+      "field_path": "personal.state"
+    },
+    "postal_code": {
+      "patterns": [
+        "zip", "postal code", "zipcode", "post code"
+      ],
+      "exclude_patterns": [],
+      "field_path": "personal.postal_code"
+    },
+    "country": {
+      "patterns": [
+        "country", "nation"
+      ],
+      "exclude_patterns": [],
+      "field_path": "personal.country"
+    },
+    "linkedin": {
+      "patterns": [
+        "linkedin", "linked in"
+      ],
+      "exclude_patterns": [],
+      "field_path": "profiles.linkedin"
+    },
+    "github": {
+      "patterns": [
+        "github", "git hub"
+      ],
+      "exclude_patterns": [],
+      "field_path": "profiles.github"
+    },
+    "portfolio": {
+      "patterns": [
+        "portfolio", "website", "personal site", "blog", "personal website", "url"
+      ],
+      "exclude_patterns": ["linkedin", "github", "twitter"],
+      "field_path": "profiles.portfolio"
+    },
+    "authorized_to_work": {
+      "patterns": [
+        "legally authorized", "authorized to work", "legal right to work", "eligible to work", "work authorization"
+      ],
+      "exclude_patterns": ["sponsorship", "sponsor"],
+      "field_path": "work_authorization.authorized_to_work_in_country",
+      "type": "boolean"
+    },
+    "require_sponsorship": {
+      "patterns": [
+        "require sponsorship", "need sponsorship", "now or in the future require sponsorship", "visa sponsorship", "will you now or in the future require"
+      ],
+      "exclude_patterns": [],
+      "field_path": "work_authorization.require_sponsorship",
+      "type": "boolean"
+    },
+    "start_date": {
+      "patterns": [
+        "available to start", "start date", "availability to start", "earliest start date", "when are you available to start", "start an internship"
+      ],
+      "exclude_patterns": ["end date"],
+      "field_path": "availability.start_date"
+    },
+    "end_date": {
+      "patterns": [
+        "end date", "available until", "completion date"
+      ],
+      "exclude_patterns": ["start"],
+      "field_path": "availability.end_date"
+    },
+    "duration_months": {
+      "patterns": [
+        "how many months", "internship duration", "duration are you available", "duration of internship"
+      ],
+      "exclude_patterns": [],
+      "field_path": "availability.duration_months"
+    },
+    "internship_full_time": {
+      "patterns": [
+        "full-time internship", "full time internship", "available for a full-time"
+      ],
+      "exclude_patterns": [],
+      "field_path": "availability.full_time",
+      "type": "boolean"
+    },
+    "thesis_required": {
+      "patterns": [
+        "thesis", "report for your university"
+      ],
+      "exclude_patterns": [],
+      "field_path": "availability.thesis_or_report_required",
+      "type": "boolean"
+    },
+    "gender": {
+      "patterns": [
+        "gender", "sex"
+      ],
+      "exclude_patterns": [],
+      "field_path": "eeo.gender",
+      "type": "eeo"
+    },
+    "race_ethnicity": {
+      "patterns": [
+        "race", "ethnicity", "ethnic background"
+      ],
+      "exclude_patterns": [],
+      "field_path": "eeo.race_ethnicity",
+      "type": "eeo"
+    },
+    "veteran_status": {
+      "patterns": [
+        "veteran", "military status", "protected veteran"
+      ],
+      "exclude_patterns": [],
+      "field_path": "eeo.veteran_status",
+      "type": "eeo"
+    },
+    "disability_status": {
+      "patterns": [
+        "disability", "handicap", "physical or mental impairment"
+      ],
+      "exclude_patterns": [],
+      "field_path": "eeo.disability_status",
+      "type": "eeo"
+    }
+  },
+  "eeo_synonyms": {
+    "gender": {
+      "Male": ["male", "man", "cisgender male", "cis male"],
+      "Female": ["female", "woman", "cisgender female", "cis female"],
+      "Non-Binary": ["non-binary", "nonbinary", "genderqueer", "gender non-conforming"],
+      "Decline to state": ["decline", "prefer not", "do not wish", "choose not", "not disclose"]
+    },
+    "race_ethnicity": {
+      "Hispanic or Latino": ["hispanic", "latino", "latina", "latinx"],
+      "White": ["white", "caucasian"],
+      "Black or African American": ["black", "african american", "african"],
+      "Asian": ["asian", "asian american", "indian", "chinese", "filipino", "japanese", "korean", "vietnamese"],
+      "American Indian or Alaska Native": ["american indian", "alaska native", "indigenous", "native american"],
+      "Native Hawaiian or Other Pacific Islander": ["native hawaiian", "pacific islander"],
+      "Two or More Races": ["two or more", "multiracial", "two+", "multi-racial"],
+      "Decline to state": ["decline", "prefer not", "do not wish", "choose not", "not disclose"]
+    },
+    "veteran_status": {
+      "I am not a protected veteran": ["not a protected veteran", "not a veteran", "non-veteran", "no", "i am not", "i identify as one or more of the classifications of protected veteran: no"],
+      "I identify as one or more of the classifications of protected veteran": ["i am a protected veteran", "identify as a protected veteran", "veteran", "yes", "i am", "protected veteran"],
+      "I do not wish to self-identify": ["decline", "prefer not", "do not wish", "choose not", "not disclose"]
+    },
+    "disability_status": {
+      "No, I do not have a disability": ["no", "do not have a disability", "i don't have a disability", "no disability"],
+      "Yes, I have a disability": ["yes", "have a disability", "i have a disability", "history or record"],
+      "I do not wish to answer": ["decline", "prefer not", "do not wish", "choose not", "not disclose"]
+    }
+  }
+}

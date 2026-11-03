@@ -1,0 +1,21 @@
+# Virtual environment
+.venv/
+venv/
+ENV/
+
+# Python cache
+__pycache__/
+*.py[cod]
+*$py.class
+.pytest_cache/
+
+# Local sensitive user profile (keep example, ignore real)
+config/profile.json
+config/profile.test.json
+
+# Local test artifacts
+tests/sample_resume.pdf
+
+# OS generated files
+.DS_Store
+*.swp
